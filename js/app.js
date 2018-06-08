@@ -8,7 +8,7 @@ var Enemy = function(x,y,speed) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/enemy-bug.png';
-    this.speed = 5; // SPEED???
+    this.speed = speed; //need different speeds for each bug
 };
 
 // Update the enemy's position, required method for game
@@ -32,6 +32,7 @@ Enemy.prototype.render = function() {
 var Player = function(x,y) {
   this.x = x;
   this.y = y;
+
   this.sprite = 'images/char-horn-girl.png';
   //this.sprite.position.set
 
@@ -58,9 +59,9 @@ Player.prototype.handleInput = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let allEnemies = [new Enemy(0, 65), new Enemy(0, 145), new Enemy(0,230)];
+let allEnemies = [new Enemy(0, 65, 15), new Enemy(0, 145, 90), new Enemy(0, 230, 45)];
 
-let player = new Player (200,150);
+let player = new Player (200, 150);
 
 
 // This listens for key presses and sends the keys to your
