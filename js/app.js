@@ -7,8 +7,6 @@ var Enemy = function(x,y,speed) {
     this.y = y;
     this.sprite = 'images/enemy-bug.png';
     this.speed = speed; //enables different speeds for each bug
-    //make speed random for each bug???
-      //Math.floor(Math.random() * (100 - 15)) + 15;
 };
 
 // Update the enemy's position, required method for game
@@ -98,12 +96,13 @@ Player.prototype.handleInput = function(keyPress) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [];
-let enemyOne = new Enemy(-85, 65, 15);
+let enemyOne = new Enemy(-85, 65, (Math.floor(Math.random() * (100 - 20)) + 20));
 allEnemies.push(enemyOne);
-let enemyTwo = new Enemy(-105, 145, 90);
+let enemyTwo = new Enemy(-105, 145, (Math.floor(Math.random() * (100 - 20)) + 20));
 allEnemies.push(enemyTwo);
-let enemyThree = new Enemy(-120, 230, 45);
+let enemyThree = new Enemy(-120, 230, (Math.floor(Math.random() * (100 - 20)) + 20));
 allEnemies.push(enemyThree);
+
 
 
 // Place the player object in a variable called player
