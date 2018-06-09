@@ -17,9 +17,14 @@ Enemy.prototype.update = function(dt) {
   // all computers.
   this.x += this.speed * dt;
   //Updates the Enemy location (you need to implement)
-  //Enemy.prototype.checkCollisions - player goes back to start and game reset
-  //(or external to update method??? YT solution not good as player/enemy diff sizes
-};
+  //Checks for collisions - horizonatally 55 pixels between and vertically 15 pixels
+  if (Math.abs(Math.floor(player.x) - Math.floor(this.x)) <= 55 &&
+    Math.abs(Math.floor(player.y) - Math.floor(this.y)) <= 15) {
+    window.location.reload();
+  }
+
+}
+
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -36,19 +41,13 @@ var Player = function(x, y, speed) {
   this.speed = 15;
   this.sprite = 'images/char-horn-girl.png';
   //this.sprite.position.set???
-
-}
+};
 Player.prototype.update = function(dt) {
   // You should multiply any movement by the dt parameter
   // which will ensure the game runs at the same speed for
   // all computers.
-
-  //this.x += this.speed * dt; (BREAKS PLAYER due to speed argument?)
-  //this.y += this.speed * dt;  ("")
-
 };
 
-//setTimeout(
 function winGame() {
   //Player put back to original position
   player.x = 202;
@@ -58,9 +57,7 @@ function winGame() {
     enemy.speed = 0;
   }
   modal.style.display = 'block';
-  //resetGame();
 }
-//, 100);
 
 //Congratulations modal
 let modal = document.getElementById('myModal');
@@ -107,10 +104,6 @@ Player.prototype.handleInput = function(keyPress) {
 };
 
 
-//checkCollisions();
-
-
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [];
@@ -132,8 +125,6 @@ let enemyEight = new Enemy(-600, 145, (Math.floor(Math.random() * (100 - 20)) + 
 allEnemies.push(enemyEight);
 let enemyNine = new Enemy(-500, 230, (Math.floor(Math.random() * (100 - 15)) + 20));
 allEnemies.push(enemyNine);
-
-//Populate array with for loop to continue enemies on screen???
 
 
 // Place the player object in a variable called player
@@ -159,16 +150,16 @@ let span = document.getElementsByClassName('close')[0];
 
 //When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-   modal.style.display = 'none';
-   window.location.reload();
+  modal.style.display = 'none';
+  window.location.reload();
 };
 
 //When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-   if (event.target == modal) {
-       modal.style.display = 'none';
-       window.location.reload();
-   }
+  if (event.target == modal) {
+    modal.style.display = 'none';
+    window.location.reload();
+  }
 };
 
 let closeButton = document.getElementById('closeModal');
@@ -176,7 +167,7 @@ closeButton.addEventListener('click', closeModal);
 
 //Modal play again button
 function closeModal() {
-  closeButton.addEventListener('click', function(e){
+  closeButton.addEventListener('click', function(e) {
     modal.style.display = 'none';
     window.location.reload();
   });
