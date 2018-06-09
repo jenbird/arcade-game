@@ -86,7 +86,6 @@ Player.prototype.handleInput = function(keyPress) {
  		this.y += 30;
 }
 };
-//Handle keydown/keyup too so do not need to press repeatedly
 
 /*If the player reaches the water the game should be reset by moving the player
 back to the initial location (you can write a separate
@@ -97,13 +96,24 @@ reset Player method to handle that).*/
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [];
-let enemyOne = new Enemy(-85, 65, (Math.floor(Math.random() * (100 - 20)) + 20));
+let enemyOne = new Enemy(-85, 65, (Math.floor(Math.random() * (65 -15)) + 15));
 allEnemies.push(enemyOne);
 let enemyTwo = new Enemy(-105, 145, (Math.floor(Math.random() * (100 - 20)) + 20));
 allEnemies.push(enemyTwo);
-let enemyThree = new Enemy(-120, 230, (Math.floor(Math.random() * (100 - 20)) + 20));
+let enemyThree = new Enemy(-120, 230, (Math.floor(Math.random() * (80 - 20)) + 20));
 allEnemies.push(enemyThree);
-
+let enemyFour = new Enemy(-250, 65, (Math.floor(Math.random() * (100 - 20)) + 20));
+allEnemies.push(enemyFour);
+let enemyFive = new Enemy(-300, 145, (Math.floor(Math.random() * (90 - 20)) + 20));
+allEnemies.push(enemyFive);
+let enemySix = new Enemy(-350, 230, (Math.floor(Math.random() * (70 - 20)) + 20));
+allEnemies.push(enemySix);
+let enemySeven = new Enemy(-400, 65, (Math.floor(Math.random() * (65 -15)) + 15));
+allEnemies.push(enemySeven);
+let enemyEight = new Enemy(-600, 145, (Math.floor(Math.random() * (100 - 20)) + 20));
+allEnemies.push(enemyEight);
+let enemyNine = new Enemy(-500, 230, (Math.floor(Math.random() * (100 - 15)) + 20));
+allEnemies.push(enemyNine);
 
 
 // Place the player object in a variable called player
