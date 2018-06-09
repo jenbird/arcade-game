@@ -6,7 +6,7 @@ var Enemy = function(x,y,speed) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/enemy-bug.png';
-    this.speed = speed; //enables different speeds for each bug
+    this.speed = speed; //enables different speeds for each bug, to be defined in objects later
 };
 
 // Update the enemy's position, required method for game
@@ -74,22 +74,23 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(keyPress) {
   if(keyPress === 'left'){
-		this.x -= 15;
+		this.x -= 30;
  	}
  	if(keyPress === 'up'){
- 		this.y -= 15;
+ 		this.y -= 30;
  	}
  	if(keyPress === 'right'){
-		this.x += 15;
+		this.x += 30;
  	}
  	if(keyPress === 'down') {
- 		this.y += 15;
+ 		this.y += 30;
 }
 };
 //Handle keydown/keyup too so do not need to press repeatedly
-//Stop player moving off screen
-//
-//If the player reaches the water the game should be reset by moving the player back to the initial location (you can write a separate reset Player method to handle that).
+
+/*If the player reaches the water the game should be reset by moving the player
+back to the initial location (you can write a separate
+reset Player method to handle that).*/
 
 
 
