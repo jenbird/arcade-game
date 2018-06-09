@@ -22,9 +22,11 @@ Enemy.prototype.update = function(dt) {
     Math.abs(Math.floor(player.y) - Math.floor(this.y)) <= 15) {
     window.location.reload();
   }
-
+  //Checks if enemy object has left screen and restarts it off screen to left
+  if (this.x >= 500) {
+    this.x = (Math.floor(Math.random() * (-600 - (-100))) + (-100));
+  }
 }
-
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
