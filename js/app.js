@@ -52,6 +52,21 @@ Player.prototype.update = function(dt) {
     //this.sprite.position.x += this.directionX * this.speed;
 //this.sprite.position.y += this.directionY * this.speed;
 
+  //Do not need to stop player moving off top of screen as this will win the game
+  //Stops player moving off left of screen
+  if (this.x <= -2) {
+  this.x = -2;
+  }
+  //Stops player moving off right of screen
+  if (this.x >= 404) {
+  this.x = 404;
+  }
+  //Stops player moving off bottom of screen
+  if (this.y >= 404) {
+  this.y = 404;
+  }
+
+//Needs to say player reach top of screen, wins game and modal??
 
 };
 
