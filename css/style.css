@@ -1,3 +1,86 @@
 body {
     text-align: center;
 }
+/* Modal box */
+
+
+/* The Modal (background) */
+
+.modal {
+	display: none;
+	/* Hidden by default */
+	position: fixed;
+	/* Stay in place */
+	z-index: 1;
+	/* Sit on top */
+  left: 0;
+  top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	/* Enable scroll if needed */
+	background-color: rgb(0, 0, 0);
+	/* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4);
+	/* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+  position: relative;
+	background-color: #fefefe;
+	margin: 15% auto;
+	/* 15% from the top and centered */
+	padding: 20px 10px 20px 10px;
+  border: 1px solid #888;
+  width: 55%;
+	/* Could be more or less, depending on screen size */
+  font-family: 'Bungee Inline', cursive;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+	animation-name: animatetop;
+	animation-duration: 0.4s
+}
+
+/* Add Animation to Modal */
+
+@keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0
+	}
+	to {
+		top: 0;
+		opacity: 1
+	}
+}
+
+/* The Close Button */
+
+.close {
+	color: black;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  display: block;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#closeModal {
+  color: black;
+  align-content: center;
+  padding: 5px 5px 5px 5px
+  font-family: 'Bungee Inline', cursive;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
