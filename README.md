@@ -2,10 +2,10 @@
 
 ## Table of Contents
 
-* [Project Background](#projectbackground)
-* [Instructions](#instructions)
-* [Dependencies](#dependencies)
-* [Resources](#resources)
+-   [Project Background](#projectbackground)
+-   [Instructions](#instructions)
+-   [Dependencies](#dependencies)
+-   [Resources](#resources)
 
 ## Project Background
 
