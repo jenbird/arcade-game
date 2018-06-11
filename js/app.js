@@ -9,6 +9,13 @@ var Enemy = function(x, y, speed) {
   this.speed = speed; //enables different speeds for each bug, to be defined in objects later
 };
 
+let canvasClass = document.getElementsByTagName('canvas');
+function animate() {
+  canvasClass[0].classList.add('animate');
+  setTimeout(function(){
+  canvasClass[0].classList.remove('animate');
+  },500);
+}
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -20,7 +27,10 @@ Enemy.prototype.update = function(dt) {
   //Checks for collisions - horizonatally 55 pixels between and vertically 15 pixels
   if (Math.abs(Math.floor(player.x) - Math.floor(this.x)) <= 55 &&
     Math.abs(Math.floor(player.y) - Math.floor(this.y)) <= 15) {
-    window.location.reload();
+      animate();
+      player.x = 202;
+      player.y = 400;
+    //window.location.reload();
   }
   //Checks if enemy object has left screen and restarts it off screen to left
   if (this.x >= 500) {
