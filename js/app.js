@@ -12,40 +12,30 @@ var Enemy = function(x, y, speed) {
   this.speed = speed; //enables different speeds for each bug, to be defined in objects later
 };
 
-let canvasClass = document.getElementsByTagName('canvas');
-function animate() {
-  canvasClass[0].classList.add('animate');
-  setTimeout(function(){
-  canvasClass[0].classList.remove('animate');
-  },500);
-}
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
   // You should multiply any movement by the dt parameter
   // which will ensure the game runs at the same speed for
   // all computers.
-  this.x += this.speed * dt;
   //Updates the Enemy location (you need to implement)
+  this.x += this.speed * dt;
   //Checks for collisions - horizonatally 55 pixels between and vertically 15 pixels
   if (Math.abs(Math.floor(player.x) - Math.floor(this.x)) <= 55 &&
     Math.abs(Math.floor(player.y) - Math.floor(this.y)) <= 15) {
-      animate();
-      player.x = 202;
-      player.y = 400;
-    //window.location.reload();
+    animate();
+    player.reset();
   }
   //Checks if enemy object has left screen and restarts it off screen to left
   if (this.x >= 500) {
     this.x = (Math.floor(Math.random() * (-600 - (-100))) + (-100));
   }
-}
+};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -55,13 +45,27 @@ var Player = function(x, y, speed) {
   this.y = y;
   this.speed = 15;
   this.sprite = 'images/char-horn-girl.png';
-  //this.sprite.position.set???
 };
+
 Player.prototype.update = function(dt) {
   // You should multiply any movement by the dt parameter
   // which will ensure the game runs at the same speed for
   // all computers.
 };
+
+Player.prototype.reset = function() {
+  this.x = 202;
+  this.y = 400;
+};
+
+let canvasClass = document.getElementsByTagName('canvas');
+
+function animate() {
+  canvasClass[0].classList.add('animate');
+  setTimeout(function() {
+    canvasClass[0].classList.remove('animate');
+  }, 500);
+}
 
 function winGame() {
   //Player put back to original position
@@ -140,7 +144,6 @@ let enemyEight = new Enemy(-600, 145, (Math.floor(Math.random() * (100 - 20)) + 
 allEnemies.push(enemyEight);
 let enemyNine = new Enemy(-500, 230, (Math.floor(Math.random() * (100 - 15)) + 20));
 allEnemies.push(enemyNine);
-
 
 // Place the player object in a variable called player
 let player = new Player(202, 400, 15);

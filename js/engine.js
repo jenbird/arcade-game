@@ -24,7 +24,6 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    //canvas.setAttribute('class', 'animate');
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
